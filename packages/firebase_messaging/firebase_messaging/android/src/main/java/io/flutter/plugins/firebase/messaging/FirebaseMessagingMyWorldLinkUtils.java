@@ -20,18 +20,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FirebaseMessagingMyWorldLinkUtils {
-  public static void sendNotificationReadStatus(final Context context,final String userAction,
-                                                final String messageType, final String username, final String executionId,final String token) {
+  public static void sendNotificationReadStatus(final Context context, final String userAction,
+                                                final String messageType, final String username, final String executionId, final String token) {
     RequestQueue requestQueue = Volley.newRequestQueue(context);
     String url = "https://custmobileapp.worldlink.com.np/app/v2/notification/" + username + "/action/" + executionId;
-    Log.e("URL VOLLEY PACKAGE", url);
+    Log.e("PACKAGE URL VOLLEY ->", url);
     StringRequest request = new StringRequest(com.android.volley.Request.Method.PATCH, url, response -> {
-      Log.e("PACKAGE SUCCESS ", url);
+      try {
+        Log.e("PACKAGE SUCCESS ->", url);
+      } catch (Exception e) {
+        Log.e("PACKAGE Exception ->", e.getLocalizedMessage());
+      }
 
     }, error -> {
-      Log.e("PACKAGE ERROR ", url);
+      Log.e("PACKAGE ERROR ->", url);
 
-    }){
+    }) {
       @Override
       protected Map<String, String> getParams() {
         HashMap<String, String> hashMap = new HashMap<String, String>();
