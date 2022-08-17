@@ -1,3 +1,4 @@
+/*
 // Copyright 2020 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -26,7 +27,7 @@ Future<T> neverEndingFuture<T>() async {
 void setupFirebaseMessagingMocks() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelFirebase.channel.setMockMethodCallHandler((call) async {
+  MethodChannelFirebase.appInstances((call) async {
     if (call.method == 'Firebase#initializeCore') {
       return [
         {
@@ -184,3 +185,4 @@ class MockFirebaseMessaging extends Mock
 class TestFirebaseMessagingPlatform extends FirebaseMessagingPlatform {
   TestFirebaseMessagingPlatform() : super();
 }
+*/
