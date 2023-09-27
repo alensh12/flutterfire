@@ -43,7 +43,7 @@ import java.util.Random;
 
 import android.content.SharedPreferences;
 
-import com.freshchat.consumer.sdk.Freshchat;
+//import com.freshchat.consumer.sdk.Freshchat;
 
 public class FlutterFirebaseMessagingBackgroundService extends JobIntentService {
   private static final String TAG = "FLTFireMsgService";

@@ -4,7 +4,7 @@
 
 package io.flutter.plugins.firebase.messaging;
 
-import com.freshchat.consumer.sdk.Freshchat;
+//import com.freshchat.consumer.sdk.Freshchat;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -18,7 +18,6 @@ import com.google.firebase.messaging.RemoteMessage;
 import java.util.HashMap;
 
 import android.content.SharedPreferences;
-import com.freshchat.consumer.sdk.Freshchat;
 
 public class FlutterFirebaseMessagingReceiver extends BroadcastReceiver {
   private static final String TAG = "FLTFireMsgReceiver";
@@ -32,11 +31,11 @@ public class FlutterFirebaseMessagingReceiver extends BroadcastReceiver {
     }
 
     RemoteMessage remoteMessage = new RemoteMessage(intent.getExtras());
-    if (Freshchat.isFreshchatNotification(remoteMessage)) {
-      Log.d(TAG, "broadcast received for message is freshchat notif background");
-      Freshchat.handleFcmMessage(context, remoteMessage);
-
-    }else {
+//    if (Freshchat.isFreshchatNotification(remoteMessage)) {
+//      Log.d(TAG, "broadcast received for message is freshchat notif background");
+//      Freshchat.handleFcmMessage(context, remoteMessage);
+//
+//    }else {
       Log.d(TAG, "broadcast received for message is normal notif background");
 
       // Store the RemoteMessage if the message contains a notification payload.
@@ -71,5 +70,5 @@ public class FlutterFirebaseMessagingReceiver extends BroadcastReceiver {
       FlutterFirebaseMessagingBackgroundService.enqueueMessageProcessing(
         context, onBackgroundMessageIntent);
     }
-  }
+//  }
 }
